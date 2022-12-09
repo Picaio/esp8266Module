@@ -16,7 +16,7 @@ unsigned long lastConnectionTime = 0;         // last time you connected to the 
 const unsigned long postingInterval = 10000L; // delay between updates, in milliseconds
 // Initialize the Ethernet client object
 WiFiEspClient client;
-
+void(* resetFunc) (void) = 0; //declare reset function @ address 0
 void setup()
 {
   // initialize serial for debugging
@@ -46,6 +46,7 @@ void setup()
   
   printWifiStatus();
 }
+
 
 void loop()
 {
